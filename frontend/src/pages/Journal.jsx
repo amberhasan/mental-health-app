@@ -1,9 +1,16 @@
 import { useState } from "react";
+import "../styles/Journal.css"; // ✅ Keep this!
 
 function Journal({ goBack }) {
   const [entry, setEntry] = useState("");
   const [mood, setMood] = useState("");
   const [confidence, setConfidence] = useState(null);
+
+  const getMoodEmoji = (mood) => {
+    if (mood === "POSITIVE") return "😊";
+    if (mood === "NEGATIVE") return "😞";
+    return "😐"; // neutral or unknown
+  };
 
   const handleAnalyze = async () => {
     console.log("Analyzing mood for entry:", entry);
@@ -24,43 +31,36 @@ function Journal({ goBack }) {
     }
   };
 
-  //   const handleAnalyze = async () => {
-  //     console.log("Button clicked! Entry is:", entry);
-  //   };
-
   return (
     <div className="pageContainer">
-      <h1 className="pageTitle">Journal</h1>
+      <div className="journalCard">
+        <h1 className="pageTitle">Journal</h1>
 
-      <textarea
-        className="border rounded p-4 w-96 h-48 mb-4"
-        placeholder="Write your journal entry here..."
-        value={entry}
-        onChange={(e) => setEntry(e.target.value)}
-      />
+        <textarea
+          className="journalTextarea"
+          placeholder="Write your journal entry here..."
+          value={entry}
+          onChange={(e) => setEntry(e.target.value)}
+        />
 
-      <button
-        className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 mb-4"
-        onClick={() => {
-          console.log("Button clicked inline! Entry is:", entry);
-          handleAnalyze();
-        }}
-      >
-        Analyze Mood
-      </button>
+        <button className="analyzeButton" onClick={handleAnalyze}>
+          Analyze Mood
+        </button>
 
-      {mood && (
-        <div>
-          <p className="text-lg font-bold">Mood: {mood}</p>
-          <p className="text-sm">
-            Confidence: {(confidence * 100).toFixed(2)}%
-          </p>
-        </div>
-      )}
+        {mood && (
+          <div className="moodResult">
+            <div className="emoji">{getMoodEmoji(mood)}</div>
+            <p className="moodText">Mood: {mood}</p>
+            <p className="confidenceText">
+              Confidence: {(confidence * 100).toFixed(2)}%
+            </p>
+          </div>
+        )}
 
-      <button className="backButton mt-8" onClick={goBack}>
-        Back
-      </button>
+        <button className="backButton" onClick={goBack}>
+          Back
+        </button>
+      </div>
     </div>
   );
 }
