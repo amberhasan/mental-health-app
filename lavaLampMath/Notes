@@ -1,1 +1,12 @@
+blob --
+svg
+has nodes
+nodes -- create radially so we know one leads to another
+5 - 8 points?
+temp (general drift direction, can change)
+each node moves by the temp + some jitter per timestep
+some number of blobs
+transparency, color, etc on a sine temp with some jitter
+
+waves --
 
