@@ -1,0 +1,29 @@
+.pageContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #e0f7fa;
+}
+
+.pageTitle {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.backButton {
+  padding: 12px 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: #00acc1;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.backButton:hover {
+  background-color: #00838f;
+}

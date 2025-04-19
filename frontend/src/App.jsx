@@ -1,4 +1,11 @@
 import { useState, useEffect } from "react";
+import "./App.css";
+import Games from "./pages/Games";
+import TodoList from "./pages/TodoList";
+import EmotionScan from "./pages/EmotionScan";
+import Journal from "./pages/Journal";
+import Store from "./pages/Store";
+import Options from "./pages/Options";
 
 function App() {
   const [screen, setScreen] = useState("home");
@@ -20,103 +27,41 @@ function App() {
 
   if (screen === "home") {
     return (
-      <div style={styles.fullscreenContainer}>
+      <div className="fullscreenContainer">
         <h1>Hello John</h1>
-        <p style={styles.quote}>{quote}</p>
-        <div style={styles.grid}>
-          <button style={styles.button} onClick={() => setScreen("games")}>
-            Games
-          </button>
-          <button style={styles.button} onClick={() => setScreen("todo")}>
-            TODO List
-          </button>
-          <button style={styles.button} onClick={() => setScreen("emotion")}>
-            Emotion Scan
-          </button>
-          <button style={styles.button} onClick={() => setScreen("journal")}>
-            Journal
-          </button>
-          <button style={styles.button} onClick={() => setScreen("store")}>
-            Store
-          </button>
-          <button style={styles.button} onClick={() => setScreen("options")}>
-            Options
-          </button>
+        <p className="quote">{quote}</p>
+        <div className="grid">
+          <MenuButton label="Games" onClick={() => setScreen("games")} />
+          <MenuButton label="TODO List" onClick={() => setScreen("todo")} />
+          <MenuButton
+            label="Emotion Scan"
+            onClick={() => setScreen("emotion")}
+          />
+          <MenuButton label="Journal" onClick={() => setScreen("journal")} />
+          <MenuButton label="Store" onClick={() => setScreen("store")} />
+          <MenuButton label="Options" onClick={() => setScreen("options")} />
         </div>
       </div>
     );
   }
 
-  if (screen === "games")
-    return <Screen title="Games" goBack={() => setScreen("home")} />;
-  if (screen === "todo")
-    return <Screen title="TODO List" goBack={() => setScreen("home")} />;
+  if (screen === "games") return <Games goBack={() => setScreen("home")} />;
+  if (screen === "todo") return <TodoList goBack={() => setScreen("home")} />;
   if (screen === "emotion")
-    return <Screen title="Emotion Scan" goBack={() => setScreen("home")} />;
-  if (screen === "journal")
-    return <Screen title="Journal" goBack={() => setScreen("home")} />;
-  if (screen === "store")
-    return <Screen title="Store" goBack={() => setScreen("home")} />;
-  if (screen === "options")
-    return <Screen title="Options" goBack={() => setScreen("home")} />;
+    return <EmotionScan goBack={() => setScreen("home")} />;
+  if (screen === "journal") return <Journal goBack={() => setScreen("home")} />;
+  if (screen === "store") return <Store goBack={() => setScreen("home")} />;
+  if (screen === "options") return <Options goBack={() => setScreen("home")} />;
 
   return null;
 }
 
-function Screen({ title, goBack }) {
+function MenuButton({ label, onClick }) {
   return (
-    <div style={styles.fullscreenContainer}>
-      <h1>{title}</h1>
-      <button style={styles.backButton} onClick={goBack}>
-        Back
-      </button>
-    </div>
+    <button className="menuButton" onClick={onClick}>
+      {label}
+    </button>
   );
 }
-
-const styles = {
-  fullscreenContainer: {
-    textAlign: "center",
-    padding: "20px",
-    fontFamily: "Arial, sans-serif",
-    height: "100vh",
-    width: "100vw",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f9f9f9",
-  },
-  quote: {
-    fontStyle: "italic",
-    marginBottom: "30px",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: "20px",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  button: {
-    padding: "20px",
-    fontSize: "16px",
-    borderRadius: "8px",
-    border: "1px solid #ccc",
-    cursor: "pointer",
-    backgroundColor: "#f0f0f0",
-    transition: "background-color 0.3s",
-    width: "150px",
-  },
-  backButton: {
-    padding: "10px 20px",
-    fontSize: "16px",
-    marginTop: "20px",
-    borderRadius: "8px",
-    border: "1px solid #ccc",
-    backgroundColor: "#f0f0f0",
-    cursor: "pointer",
-  },
-};
 
 export default App;
