@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import Card from './components/Card.jsx';
-import './components/Card.css';
+import React, { useState, useEffect } from "react";
+import Card from "./components/Card.jsx";
+import "./components/Card.css";
 import Games from "./pages/Games";
 import TodoList from "./pages/TodoList";
 import EmotionScan from "./pages/EmotionScan";
@@ -10,40 +10,40 @@ import Options from "./pages/Options";
 
 const cardData = [
   {
-    icon: '🎮',
-    title: 'Mindful Games',
-    description: 'Practice mindfulness through engaging games',
-    screen: 'games'
+    icon: "🎮",
+    title: "Mindful Games",
+    description: "Practice mindfulness through engaging games",
+    screen: "games",
   },
   {
-    icon: '🛍️',
-    title: 'Wellness Store',
-    description: 'Discover tools for your mental wellbeing',
-    screen: 'store'
+    icon: "🛍️",
+    title: "Wellness Store",
+    description: "Discover tools for your mental wellbeing",
+    screen: "store",
   },
   {
-    icon: '✅',
-    title: 'Self-Care Tasks',
-    description: 'Track your daily wellness activities',
-    screen: 'todo'
+    icon: "✅",
+    title: "Self-Care Tasks",
+    description: "Track your daily wellness activities",
+    screen: "todo",
   },
   {
-    icon: '🧠',
-    title: 'Mood Scanner',
-    description: 'Check in with your emotional state',
-    screen: 'emotion'
+    icon: "🧠",
+    title: "Mood Scanner",
+    description: "Check in with your emotional state",
+    screen: "emotion",
   },
   {
-    icon: '📖',
-    title: 'Reflection Journal',
-    description: 'Document your thoughts and feelings',
-    screen: 'journal'
+    icon: "📖",
+    title: "Reflection Journal",
+    description: "Document your thoughts and feelings",
+    screen: "journal",
   },
   {
-    icon: '⚙️',
-    title: 'Your Settings',
-    description: 'Personalize your wellness journey',
-    screen: 'options'
+    icon: "⚙️",
+    title: "Your Settings",
+    description: "Personalize your wellness journey",
+    screen: "options",
   },
 ];
 
@@ -58,7 +58,7 @@ const quotes = [
   "Be yourself; everyone else is already taken.",
   "It always seems impossible until it's done.",
   "What we think, we become.",
-  "Life is a long lesson in humility."
+  "Life is a long lesson in humility.",
 ];
 
 function App() {
@@ -73,11 +73,8 @@ function App() {
   if (screen === "home") {
     return (
       <div className="fullscreenContainer">
-<<<<<<< HEAD
-        <h1>"MindFrame" A Glanceable Mental Health Dashboard</h1>
-=======
         <h1>"MindFrame" – A Glanceable Mental Health Dashboard</h1>
->>>>>>> a36b91b (Journal better UI)
+        <h1>"MindFrame" A Glanceable Mental Health Dashboard</h1>
         <p className="quote">{quote}</p>
         <div className="card-grid">
           {cardData.map((card, index) => (
@@ -96,7 +93,8 @@ function App() {
 
   if (screen === "games") return <Games goBack={() => setScreen("home")} />;
   if (screen === "todo") return <TodoList goBack={() => setScreen("home")} />;
-  if (screen === "emotion") return <EmotionScan goBack={() => setScreen("home")} />;
+  if (screen === "emotion")
+    return <EmotionScan goBack={() => setScreen("home")} />;
   if (screen === "journal") return <Journal goBack={() => setScreen("home")} />;
   if (screen === "store") return <Store goBack={() => setScreen("home")} />;
   if (screen === "options") return <Options goBack={() => setScreen("home")} />;
