@@ -73,7 +73,11 @@ function App() {
   if (screen === "home") {
     return (
       <div className="fullscreenContainer">
+<<<<<<< HEAD
         <h1>"MindFrame" A Glanceable Mental Health Dashboard</h1>
+=======
+        <h1>"MindFrame" – A Glanceable Mental Health Dashboard</h1>
+>>>>>>> a36b91b (Journal better UI)
         <p className="quote">{quote}</p>
         <div className="card-grid">
           {cardData.map((card, index) => (
