@@ -74,7 +74,6 @@ function App() {
     return (
       <div className="fullscreenContainer">
         <h1>"MindFrame" – A Glanceable Mental Health Dashboard</h1>
-        <h1>"MindFrame" A Glanceable Mental Health Dashboard</h1>
         <p className="quote">{quote}</p>
         <div className="card-grid">
           {cardData.map((card, index) => (
