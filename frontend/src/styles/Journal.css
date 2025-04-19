@@ -125,7 +125,7 @@
   border-radius: 50px;
   border: none;
   background-color: #fb8c00;
-  color: white;
+  color: black;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
   box-shadow: 0 4px 12px rgba(251, 140, 0, 0.4);
