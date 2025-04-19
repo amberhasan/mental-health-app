@@ -18,6 +18,11 @@ function App() {
     "Progress, not perfection.",
     "Your feelings are valid.",
     "Keep going.",
+    "Simplicity is the ultimate sophistication.",
+    "Be yourself; everyone else is already taken.",
+    "It always seems impossible until it's done.",
+    "What we think, we become.",
+    "Life is a long lesson in humility.",
   ];
 
   useEffect(() => {
